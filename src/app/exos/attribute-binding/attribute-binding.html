@@ -1,0 +1,18 @@
+<div class="card bg-base-100 w-96 shadow-sm">
+    <figure>
+        <img
+                [src]="user.imgUrl"
+                alt="Image de profil" />
+    </figure>
+    <div class="card-body">
+        <h2 class="card-title">{{ user.firstname }} {{ user.lastname }}</h2>
+        <p><span class="font-bold">Status : </span><span [class]="user.status ? 'text-success' : 'text-error'">{{ user.status ? "Connecté" : "Hors ligne" }}</span></p>
+        <p><span class="font-bold">Age : </span> {{ user.age }}</p>
+        <p><span class="font-bold">Bio : </span>{{ user.bio }}</p>
+        <p><span class="font-bold">Réputation : </span>{{ user.reputation }}</p>
+
+        <div class="card-actions justify-end">
+            <button class="btn btn-primary" >Changer de réputation</button>
+        </div>
+    </div>
+</div>

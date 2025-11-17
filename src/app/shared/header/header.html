@@ -1,0 +1,30 @@
+<div class="navbar bg-base-100 shadow-sm z-30">
+    <div class="flex-1">
+        <a routerLink="home" class="btn btn-ghost text-xl">daisyUI</a>
+    </div>
+    <div class="flex-none">
+        <ul class="menu menu-horizontal px-1">
+            <li><a routerLink="about">About</a></li>
+            <li>
+                <details>
+                    <summary>Lessons</summary>
+                    <ul class="bg-base-100 rounded-t-none p-2">
+
+                        <li><a routerLink="lessons/text-interpolation">Text Interpolation</a></li>
+                        <li><a routerLink="lessons/property-binding">Property Binding</a></li>
+                        <li><a routerLink="lessons/event-binding">Event Binding</a></li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Exercices</summary>
+                    <ul class="bg-base-100 rounded-t-none p-2">
+                        <li><a routerLink="exercices/attribute-binding">Attribute Binding</a></li>
+                        <li><a routerLink="exercices/event-binding">Event Binding</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
+</div>
