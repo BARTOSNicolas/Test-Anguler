@@ -46,6 +46,22 @@ export const routes: Routes = [
             {
                 path: 'event-binding',
                 loadComponent: () => import('./exos/event-binding/event-binding').then(m => m.EventBinding)
+            },
+            {
+                path: 'two-way-binding',
+                loadComponent: () => import('./exos/two-way-binding/two-way-binding').then(m => m.TwoWayBinding)
+            },
+            {
+                path: 'ng-if',
+                loadComponent: () => import('./exos/ng-if/ng-if').then(m => m.NgIf)
+            },
+            {
+                path: 'ng-for',
+                loadComponent: () => import('./exos/ng-for/ng-for').then(m => m.NgFor)
+            },
+            {
+                path: 'ng-style-ng-class',
+                loadComponent: () => import('./exos/ng-style-ng-class/ng-style-ng-class').then(m => m.NgStyleNgClass)
             }
         ]
     },

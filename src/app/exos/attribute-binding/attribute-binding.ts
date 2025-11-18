@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
+import {User} from "../../Models/User";
 
-interface User {
-  firstname: string;
-  lastname: string;
-  imgUrl: string;
-  status: boolean;
-  age: number;
-  bio: string;
-  reputation: string;
-}
 
 @Component({
   selector: 'app-attribute-binding',

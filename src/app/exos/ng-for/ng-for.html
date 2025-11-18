@@ -1,0 +1,17 @@
+<div class="hero bg-base-200">
+    <div class="hero-content text-center">
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="text-3xl font-bold text-primary">List Friends <span class="text-base-content">(EventBinding)</span></h1>
+            <div class="flex flex-col gap-1">
+                <label class="label">Nom de l'ami</label>
+                <input type="text" class="input" placeholder="Entrer le nom d'un ami" [(ngModel)]="friendName" />
+            </div>
+            <ul class="flex flex-col gap-2">
+                 @for (friend of friendList; let i = $index; track i) {
+                     <li class="px-4 py-1 border border-secondary rounded-2xl flex justify-between gap-4"><span>{{ i+1 }}</span>  {{ friend }}</li>
+                }
+            </ul>
+            <button class="btn btn-primary" (click)="onAddFriend()">+ Ajouter un ami</button>
+        </div>
+    </div>
+</div>

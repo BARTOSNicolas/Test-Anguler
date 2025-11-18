@@ -17,5 +17,10 @@ export class EventBinding {
 
   onAddFriend() {
     this.list.push(this.friendName);
+    this.friendName = '';
+  }
+
+  isDisabled() {
+    return this.friendName.length === 0;
   }
 }
