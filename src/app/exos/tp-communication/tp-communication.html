@@ -1,0 +1,9 @@
+<section class="flex justify-center">
+    <div class="card card-border bg-base-100 w-1/2">
+        <div class="card-body">
+            <h2 class="card-title">TP : Component Communication</h2>
+            <app-active-user [user]="currentUser" />
+            <app-user-data [user]="currentUser" (userChange)="updateUser($event)"/>
+        </div>
+    </div>
+</section>

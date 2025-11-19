@@ -1,0 +1,10 @@
+<div class="card card-dash bg-yellow-500 w-96">
+    <div class="card-body">
+        <h2 class="card-title">User Data</h2>
+        <label class="join">Nom d'utilisateur</label>
+        <input type="text" placeholder="Entre ton Nom" class="input" [(ngModel)]="name" />
+        <label class="join">Age</label>
+        <input type="number" placeholder="Entre ton age" class="input" [(ngModel)]="age" />
+        <button class="btn btn-primary" (click)="updateUser()">Mise à jour</button>
+    </div>
+</div>

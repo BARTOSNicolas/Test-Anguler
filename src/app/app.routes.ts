@@ -30,10 +30,26 @@ export const routes: Routes = [
                     path: 'property-binding',
                     loadComponent: () => import('./lessons/property-binding/property-binding').then(m => m.PropertyBinding)
                 },
-            {
-                path: 'event-binding',
-                loadComponent: () => import('./lessons/event-binding/event-binding').then(m => m.EventBinding)
-            }
+                {
+                    path: 'event-binding',
+                    loadComponent: () => import('./lessons/event-binding/event-binding').then(m => m.EventBinding)
+                },
+                {
+                    path: 'communication',
+                    loadComponent: () => import('./lessons/communication/communication').then(m => m.Communication)
+                },
+                {
+                    path: 'observables',
+                    loadComponent: () => import('./lessons/observables/observables').then(m => m.Observables)
+                },
+                {
+                    path: 'signals',
+                    loadComponent: () => import('./lessons/signals/signals').then(m => m.Signals)
+                },
+                {
+                    path: 'http-api',
+                    loadComponent: () => import('./lessons/http-api/http-api').then(m => m.HttpApi)
+                }
             ]
     },
     {
@@ -62,6 +78,10 @@ export const routes: Routes = [
             {
                 path: 'ng-style-ng-class',
                 loadComponent: () => import('./exos/ng-style-ng-class/ng-style-ng-class').then(m => m.NgStyleNgClass)
+            },
+            {
+                path: 'tp-communication',
+                loadComponent: () => import('./exos/tp-communication/tp-communication').then(m => m.TpCommunication)
             }
         ]
     },
