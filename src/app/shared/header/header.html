@@ -4,7 +4,15 @@
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
+            <li><a routerLink="dashboard">Dashboard</a></li>
+            @if (!isConnected()) {
+                <li><a routerLink="register">Register</a></li>
+                <li><a routerLink="login">Login</a></li>
+            } @else {
+                <li><button (click)="logOut()">Logout</button></li>
+            }
             <li><a routerLink="about">About</a></li>
+            <li><a routerLink="task-api">Task</a></li>
             <li>
                 <details>
                     <summary>Lessons</summary>

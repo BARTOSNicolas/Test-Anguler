@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 //import { Home } from './home/home';
+import {AuthGuardService} from "./services/auth-guard.service";
 
 export const routes: Routes = [
     /*{
@@ -12,12 +13,24 @@ export const routes: Routes = [
         pathMatch: 'full',
     },
     {
+        path:'register',
+        loadComponent:()=>import('./auth/register/register').then(m=>m.Register)
+    },
+    {
+        path:'login',
+        loadComponent:()=>import('./auth/login/login').then(m=>m.Login)
+    },
+    {
         path: 'home',
         loadComponent: () => import('./home/home').then(m => m.Home)
     },
     {
         path: 'about',
         loadComponent: () => import('./about/about').then(m => m.About)
+    },
+    {
+        path: 'task-api',
+        loadComponent: () => import('./task-list-firebase/task-list-firebase').then(m => m.TaskListFirebase)
     },
     {
         path: 'lessons',
@@ -49,7 +62,7 @@ export const routes: Routes = [
                 {
                     path: 'http-api',
                     loadComponent: () => import('./lessons/http-api/http-api').then(m => m.HttpApi)
-                }
+                },
             ]
     },
     {
@@ -82,8 +95,13 @@ export const routes: Routes = [
             {
                 path: 'tp-communication',
                 loadComponent: () => import('./exos/tp-communication/tp-communication').then(m => m.TpCommunication)
-            }
+            },
         ]
+    },
+    {
+        path: 'dashboard',
+        canActivate: [AuthGuardService],
+        loadComponent: () => import('./auth/dashboard/dashboard').then(m => m.Dashboard)
     },
     {
         path: '**',
