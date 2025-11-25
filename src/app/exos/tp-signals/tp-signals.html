@@ -1,0 +1,63 @@
+<section class="flex flex-col justify-center items-center gap-8 container mx-auto max-w-xl">
+    <div class="card bg-base-100 w-full shadow-xl border border-base-content">
+        <div class="card-body">
+            <form class="form-control flex flex-col gap-4" (ngSubmit)="addTask(); taskInput.focus()">
+                <h2 class="card-title text-primary">Ajouter une tâche</h2>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Nommer vote tâche</legend>
+                    <input #taskInput type="text" class="input w-full" placeholder="Taper ici" [(ngModel)]="newTask" name="task" required/>
+                </fieldset>
+                <select class="select w-full" [(ngModel)]="optionTask" name="priority">
+                    <option [ngValue]="" disabled selected>Choisir une priorité</option>
+                    <option [ngValue]="1">Haute</option>
+                    <option [ngValue]="2">moyenne</option>
+                    <option [ngValue]="3">Basse</option>
+                </select>
+                <input type="submit" class="btn btn-primary" value="Ajouter" [disabled]="!newTask()"/>
+            </form>
+
+        </div>
+    </div>
+    <div class="card bg-base-100 w-full shadow-xl border border-base-content">
+        <div class="card-body">
+            <div class="flex justify-between items-center">
+                <h2 class="card-title text-secondary">Liste des tâches</h2>
+                <label class="label">
+                    Trier
+                    <input type="checkbox" [checked]="isSorted()" class="toggle toggle-warning" (change)="toggleSort()" />
+                </label>
+            </div>
+            <ul class="list bg-base-100 rounded-box">
+                @if (sortedList().length <= 0) {
+                    <p class="text-base-content/50 w-full text-center">Pas de tâche, commencez par ajouter une tâche...</p>
+                } @else {
+                    @for (task of sortedList(); track task.id) {
+                        <li class="flex justify-between items-center py-2 px-4">
+                            <h3>{{ task.title }}</h3>
+                            <div class="flex gap-2 items-center">
+                                <span [innerHTML]="badgePriority(task.priority)"></span>
+                                <input type="checkbox" [checked]="task.completed" class="toggle toggle-success" (input)="toggleTask(task)" />
+                                <button class="btn btn-circle btn-ghost btn-error" (click)="deleteTask(task.id)">X</button>
+                            </div>
+
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="card bg-base-100 w-full shadow-xl border border-base-content">
+        <div class="card-body">
+            <h2 class="card-title text-accent">Statistiques</h2>
+            <p>Tâches complètées : <span class="font-bold">{{ completedTasks() }}</span></p>
+            <p>Tâches restantes : <span class="font-bold">{{ unclearedTasks() }}</span></p>
+        </div>
+    </div>
+    @if(showToast()) {
+        <div class="toast toast-end">
+            <div class="alert shadow-lg" [class]="`alert-${toastType()}`">
+                <span>{{ toastMessage() }}</span>
+            </div>
+        </div>
+    }
+</section>

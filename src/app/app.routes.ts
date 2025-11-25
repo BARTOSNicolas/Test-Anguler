@@ -56,12 +56,20 @@ export const routes: Routes = [
                     loadComponent: () => import('./lessons/observables/observables').then(m => m.Observables)
                 },
                 {
+                    path: 'observables-advanced',
+                    loadComponent: () => import('./lessons/observables-advanced/observables-advanced').then(m => m.ObservablesAdvanced)
+                },
+                {
                     path: 'signals',
                     loadComponent: () => import('./lessons/signals/signals').then(m => m.Signals)
                 },
                 {
                     path: 'http-api',
                     loadComponent: () => import('./lessons/http-api/http-api').then(m => m.HttpApi)
+                },
+                {
+                    path: 'pipes',
+                    loadComponent: () => import('./lessons/pipes/pipes').then(m => m.Pipes)
                 },
             ]
     },
@@ -95,6 +103,14 @@ export const routes: Routes = [
             {
                 path: 'tp-communication',
                 loadComponent: () => import('./exos/tp-communication/tp-communication').then(m => m.TpCommunication)
+            },
+            {
+                path: 'tp-observables',
+                loadComponent: () => import('./exos/tp-observables/tp-observables').then(m => m.TpObservables)
+            },
+            {
+                path: 'tp-signals',
+                loadComponent: () => import('./exos/tp-signals/tp-signals').then(m => m.TpSignals)
             },
         ]
     },

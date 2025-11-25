@@ -1,0 +1,41 @@
+<section class="flex flex-col justify-center items-center gap-8 ">
+    <div class="card w-1/2 bg-base-100 card-xl shadow-sm">
+        <div class="card-body items-center gap-8">
+            <h2 class="card-title">CountDown</h2>
+            <p>
+                <span class="countdown font-mono text-6xl">
+                  <span [style]="{ '--value': currentValue, '--digits': 2 }" aria-live="polite" aria-label="Number">{{ currentValue }}</span>
+                </span>
+            </p>
+            <div class="flex-col card-actions">
+                <div class="flex gap-4 justify-center">
+                    <button class="btn btn-success" [disabled]="isStarted" (click)="startRandomNumber()">Start</button>
+                    <button class="btn btn-warning" (click)="pauseRandomNumber()">{{ isPaused ? "Resume" : "Pause"}}</button>
+                    <button class="btn btn-error" (click)="stopRandomNumber()">Stop</button>
+                </div>
+                <label class="label">
+                    <input type="checkbox" [checked]="isPaired" class="toggle toggle-success" (input)="togglePaired()" />
+                    Juste les nombres paires
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="card w-1/2 bg-base-100 card-xl shadow-sm">
+        <div class="card-body items-end">
+            <ul class="w-full text-end flex flex-col gap-1">
+                @for (number of filteredNumbers; let i = $index; track i) {
+                    <li class="w-full pl-1 pr-4 py-1 flex justify-end items-center rounded flash" [class]="number % 2 === 0 ? 'bg-primary/50' : 'bg-accent/50'">
+                        {{ number }}
+                    </li>
+                }
+            </ul>
+            <div class="flex justify-between items-center w-full">
+                @if (numbers.length > 0) {
+                    <p class="badge badge-xs" [class]="numbers.length >= 50 ? 'badge-warning' : 'badge-success'">{{ numbers.length >= 50 ? "élevée" : "faible" }}</p>
+                }
+                <p class="text-xs text-base-content/25 text-end">{{ numbers.length }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
